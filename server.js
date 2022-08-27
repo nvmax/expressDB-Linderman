@@ -1,27 +1,19 @@
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
 const app = express();
-const port = process.env.PORT || 3001;
-// need to remake these functions to use the new data structure
-const db = require('./db/db.json');
+const PORT = process.env.PORT || 3001;
+// sets api and htm to the routes folder and files
 const api = require('./routes/api');
 const html = require('./routes/html');
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// use public/assets
+// sets public folder to static 
 app.use(express.static('public'));
-// use api routes
+// method for rendering the notes.html page
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// use api and html routes in the app
 app.use('/api', api);
-// use html routes
 app.use('/', html);
-
-
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-}).on('error', err => {
-  console.log(err);
+// listen on the port
+app.listen(PORT, () => {
+    console.log(`Server now on port ${PORT}!`);
 });
-
 
