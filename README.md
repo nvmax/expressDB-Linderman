@@ -27,7 +27,7 @@
   <h1 align="center">
   
   ExpressDB Note Taker </h1>
- ![image](./public/assets/images/notes.gif)
+ ![image](/public/assets/images/Notes.gif)
 
   
   
